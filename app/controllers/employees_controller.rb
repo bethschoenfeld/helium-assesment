@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
-    @children = Child.all
+    @children = Child.count(:first_name)
     
   end
 
