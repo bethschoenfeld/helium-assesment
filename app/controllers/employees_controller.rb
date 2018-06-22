@@ -22,13 +22,6 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit
     @children = Child.all
-    @children = Child.find(params[:emp_no])
-      respond_to do |format|
-      format.html
-      format.json { render @child  }
-  end
-    
-
   end
 
   # POST /employees

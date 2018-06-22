@@ -17,13 +17,13 @@
       <th>Last Name</th>
       <th>Gender</th>
       <th>Title</th>
-      <th colspan="7"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @children.each do |child| %>
-      <tr>
+  <% @children.each do |child| %>
+    <% if child.emp_no == @employee.id %>
         <td><%= child.id %></td>
         <td><%= child.birth_date %></td>
         <td><%= child.first_name %></td>
@@ -31,7 +31,7 @@
         <td><%= child.gender %></td>
 
         
-      
+        <%end%>
       <%end%>
         </td>
   </thead>
