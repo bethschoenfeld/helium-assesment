@@ -1,4 +1,4 @@
 class Employee < ApplicationRecord
   has_many :children, dependent: :destroy
-  # enum [:Male, :Female]
+  enum gender: [:Male, :Female]
 end
