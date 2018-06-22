@@ -2,5 +2,40 @@
 
 <%= render 'form', employee: @employee %>
 
-<%= link_to 'Show', @employee %> |
+
+
 <%= link_to 'Back', employees_path %>
+
+<h1>Children</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Birth Date</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Title</th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @children.each do |child| %>
+      <tr>
+        <td><%= child.id %></td>
+        <td><%= child.birth_date %></td>
+        <td><%= child.first_name %></td>
+        <td><%= child.last_name %></td>
+        <td><%= child.gender %></td>
+
+        
+      
+      <%end%>
+        </td>
+  </thead>
+
+  
+      </tr>
+

@@ -5,6 +5,8 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
+    @children = Child.all
+    
   end
 
   # GET /employees/1
@@ -19,6 +21,14 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @children = Child.all
+    @children = Child.find(params[:emp_no])
+      respond_to do |format|
+      format.html
+      format.json { render @child  }
+  end
+    
+
   end
 
   # POST /employees
@@ -69,6 +79,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.fetch(:employee, {})
+      params.fetch(:employee).permit(:emp_no, :first_name, :last_name, :birth_date, :gender, :title)
     end
 end

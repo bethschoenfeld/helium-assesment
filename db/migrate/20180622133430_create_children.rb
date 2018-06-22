@@ -8,7 +8,7 @@ class CreateChildren < ActiveRecord::Migration[5.1]
       t.string :last_name 
       t.integer :gender 
       t.date :birth_date
-      t.integer :relationship 
+      t.integer :relationship
 
       t.timestamps
     end

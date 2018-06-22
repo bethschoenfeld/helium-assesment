@@ -11,7 +11,8 @@
       <th>Last Name</th>
       <th>Gender</th>
       <th>Title</th>
-      <th colspan="6"></th>
+      <th>Number of Children </th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -25,8 +26,6 @@
         <td><%= employee.gender %></td>
         <td><%= employee.title %></td>
 
-
-        <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -34,6 +33,39 @@
   </tbody>
 </table>
 
+<%= link_to 'New Employee', new_employee_path %>
+
 <br>
 
-<%= link_to 'New Employee', new_employee_path %>
+<h1>Children</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Birth Date</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Title</th>
+      <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @children.each do |child| %>
+      <tr>
+        <td><%= child.id %></td>
+        <td><%= child.birth_date %></td>
+        <td><%= child.first_name %></td>
+        <td><%= child.last_name %></td>
+        <td><%= child.gender %></td>
+
+        
+      
+      <%end%>
+        </td>
+
+      </tr>
+</table>
+

@@ -1,4 +1,5 @@
 class Child < ApplicationRecord
   belongs_to :employee
-  enum relationship: [:Male, :Female]
+  enum gender: [:Male, :Female]
+  enum relationship: [:Son, :Daughter]
 end
