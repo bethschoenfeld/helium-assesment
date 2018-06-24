@@ -5,10 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
-    @children = Child.count(:first_name)
-    
   end
-
   # GET /employees/1
   # GET /employees/1.json
   def show
@@ -22,6 +19,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit
     @children = Child.all
+    @child_exists = Employee.find(params[:id]).children.count
   end
 
   # POST /employees

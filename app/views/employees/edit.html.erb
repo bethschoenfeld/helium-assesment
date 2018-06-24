@@ -2,40 +2,38 @@
 
 <%= render 'form', employee: @employee %>
 
-
-
 <%= link_to 'Back', employees_path %>
 
 <h1>Children</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Birth Date</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Gender</th>
-      <th>Title</th>
-      <th colspan="6"></th>
-    </tr>
-  </thead>
+<% if @child_exists == 0 %>
+  <h2> This employee has no children </h2>
+<% else %>
 
-  <tbody>
-  <% @children.each do |child| %>
-    <% if child.emp_no == @employee.id %>
-        <td><%= child.id %></td>
-        <td><%= child.birth_date %></td>
-        <td><%= child.first_name %></td>
-        <td><%= child.last_name %></td>
-        <td><%= child.gender %></td>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Birth Date</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
 
-        
+    <tbody>
+      <% @children.each do |child| %>
+        <% if child.employee_id == @employee.id %>
+          <tr>
+            <td><%= child.id %></td>
+            <td><%= child.birth_date %></td>
+            <td><%= child.first_name %></td>
+            <td><%= child.last_name %></td>
+            <td><%= child.gender %></td>
+          </tr>
         <%end%>
       <%end%>
-        </td>
-  </thead>
-
-  
-      </tr>
-
+    </tbody>
+  </table>
+<%end%>
